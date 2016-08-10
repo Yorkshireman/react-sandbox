@@ -1,13 +1,27 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import BillSummary from './BillSummary';
+import BillHero from './BillHero'
+
+let billSummaryProps = {
+    title: 'Bill Summary',
+    total: '£2000001.37'
+}
+
 class App extends React.Component {
-  render(){
+  render() {
     return (
-      <div>
-        <h1>Hello, World!</h1>
-        <h4>How are you today?</h4>
+
+      <div id='bill-wrapper'>
+        <BillHero text='Bill Hero' />
+        <BillSummary {...billSummaryProps} />
       </div>
+
     )
   }
 }
 
-export default App
+ReactDOM.render(
+  <App />,
+  document.getElementById('app')
+);
